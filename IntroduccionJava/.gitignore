@@ -1,0 +1,64 @@
+### IntelliJ IDEA ###
+out/
+!**/src/main/**/out/
+!**/src/test/**/out/
+
+### Eclipse ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+bin/
+!**/src/main/**/bin/
+!**/src/test/**/bin/
+
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+
+### VS Code ###
+.vscode/
+
+### Mac OS ###
+.DS_Store
+
+# Carpetas y archivos de IntelliJ IDEA
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# Carpeta de compilación de Java
+/out/
+bin/
+
+# Archivos de configuración del sistema operativo
+.DS_Store
+Thumbs.db
+
+# Librerías y dependencias descargadas por herramientas como Gradle o Maven
+.gradle/
+.mvn/
+target/
+
+# Logs y archivos temporales
+*.log
+*.class
+
+# Si usas Maven
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+
+# Si usas Gradle
+build/
+.gradle/
+!gradle/wrapper/gradle-wrapper.jar
