@@ -9,8 +9,10 @@ public class Constantes {
 
         //* Impresión de constantes
         System.out.println("PI = " + PI);
+        System.out.println("PI mediante su clase Math =" + Math.PI);
         System.out.println("NOMBRE_AUTOR = " + NOMBRE_AUTOR);
         System.out.println("ANIO_PUBLICACION = " + ANIO_PUBLICACION);
 
+        //? Nota importante simpre se pone como nombre de variable siempre en mayuscula
     }
 }
