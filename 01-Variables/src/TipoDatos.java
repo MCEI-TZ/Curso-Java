@@ -44,5 +44,18 @@ public class TipoDatos {
         //* Tipo Object
         String nombre = null;
         System.out.println("nombre = " + nombre);
+
+
+        //** Tipo VAr **
+        //? Este no es un dato como tal sino un inferidor de tipo de dato
+        var numero = 10;
+        var boleano = false;
+        var texto = "hola";
+        var flotante = 10.0;
+
+        // * Ejemplo de una concatenación de valores
+        
+        System.out.println("Datos que acepta var numero = " + numero + " boleano =" + boleano + " texto =" + texto + " flotante =" + flotante);
+
     }
 }
