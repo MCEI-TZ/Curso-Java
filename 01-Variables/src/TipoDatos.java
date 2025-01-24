@@ -54,7 +54,7 @@ public class TipoDatos {
         var flotante = 10.0;
 
         // * Ejemplo de una concatenación de valores
-        
+
         System.out.println("Datos que acepta var numero = " + numero + " boleano =" + boleano + " texto =" + texto + " flotante =" + flotante);
 
     }
