@@ -26,5 +26,23 @@ public class TipoDatos {
         //! NOta: al mommento de declarar una variable con un valor long se tiene que poner una L para declarar que es long [[variable = 3.1432423L]]
         System.out.println("Minimo valor Double = " + Double.MIN_VALUE);
         System.out.println("Máximo valor Double = " + Double.MAX_VALUE);
+
+        //*Character
+        char tipoChar = 'A';
+        System.out.println("tipoChar = " + tipoChar);
+        char tipoCharDecial = 65;
+        System.out.println("tipoCharDecial = " + tipoCharDecial);
+        char tipoUnicode = '\u00A0';
+        System.out.println("tipoUnicode = " + tipoUnicode);
+
+        //* Boolean
+        boolean tipoBoolean = false;
+        System.out.println("Boolean false = " + tipoBoolean);
+        tipoBoolean = true;
+        System.out.println("Boolean true = " + tipoBoolean);
+
+        //* Tipo Object
+        String nombre = null;
+        System.out.println("nombre = " + nombre);
     }
 }
