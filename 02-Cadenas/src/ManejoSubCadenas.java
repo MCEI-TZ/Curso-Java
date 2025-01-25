@@ -9,5 +9,13 @@ public class ManejoSubCadenas {
         System.out.println("Palabra 1 " + cadena.substring(0, 5));
 
         System.out.println("Palabra 2 " + cadena.substring(5, 10));
+
+        //* Busqueda de Subcadenas
+
+        var indice1 = cadena.indexOf("Hola");
+        System.out.println("Indice de la palabra Hola: " + indice1);
+
+        var indice2 = cadena.lastIndexOf("Mundo");
+        System.out.println("Ultimo indice de la palabra Mundo: " + indice2);
     }
 }
