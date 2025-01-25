@@ -5,11 +5,13 @@ public class InmutabilidadCadenas {
         String nombre = "HOla";
         System.out.println("nombre = " + nombre);
 
-        nombre = nombre + " Mundo"; // Esto provoca una nueva cadena en memoria
+        String nombre2 = nombre ;
 
-        System.out.println("nombre = " + nombre);
+        System.out.println("nombre = " + nombre2);
 
-        String nombre2 = nombre.concat("!"); // Esto también crea una nueva cadena en memoria
+        nombre = "Adios";
+
+        nombre2 = nombre;
 
         System.out.println("nombre2 = " + nombre2);
     }
