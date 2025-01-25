@@ -17,5 +17,11 @@ public class ManejoSubCadenas {
 
         var indice2 = cadena.lastIndexOf("Mundo");
         System.out.println("Ultimo indice de la palabra Mundo: " + indice2);
+
+        //*Remplazar subcadenas
+        var nombre = "Hola Pedro";
+        System.out.println("cadena original = " + nombre);
+        var nuevaCadena = nombre.replace("Pedro","Juan");
+        System.out.println("nuevaCadena = " + nuevaCadena);
     }
 }
