@@ -19,7 +19,7 @@ public class SistemaEmpleado {
         System.out.println("¿Es usted jefe de departamento? reponda con true o false");
         var esJefeDeDepartamento = Boolean.parseBoolean(scanner.nextLine());
 
-        System.out.println("Datos del Empleado \n" + "nombre: "+nombreCompleto +"\nEdad: "+edad+"\nSalario: "+salarioEstimado+"\n ¿Es jefe de departamento: "+ esJefeDeDepartamento  );
+        System.out.println("Datos del Empleado \n" + "nombre: "+nombreCompleto +"\nEdad: "+edad+"\nSalario: $%.2f ".formatted(salarioEstimado)+"\n ¿Es jefe de departamento: "+ esJefeDeDepartamento  );
 
     }
 }
