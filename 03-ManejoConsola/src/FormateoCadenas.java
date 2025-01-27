@@ -14,5 +14,8 @@ public class FormateoCadenas {
         //* Formateo con String.format()
         var mensaje = String.format("Nombre: %s, Edad: %d, Salario: $%.2f",nombre,edad,salario);
         System.out.println(mensaje);
+
+        //* Metodo printf
+        System.out.printf("Nombre: %s, Edad: %d, Salario: $%.2f%n",nombre,edad,salario);
     }
 }
