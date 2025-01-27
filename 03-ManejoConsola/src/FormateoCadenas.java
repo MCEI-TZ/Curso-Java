@@ -30,6 +30,15 @@ public class FormateoCadenas {
                 
                   """.formatted(nombre,numeorEmpleado, edad, salario);
         System.out.println(mensaje);
-                
+
+        System.out.printf(
+                "\t***Detalle Persona***\n" +
+                "------------------------\n" +
+                "Nombre:\t%s\n" +
+                "Numero de Empleado:\t%04d\n" +
+                "Edad:\t%d\n" +
+                "Salario:\t$%.2f\n",
+                nombre, numeorEmpleado, edad, salario
+        );
     }
 }
