@@ -27,5 +27,16 @@ public class LecturaConsola {
          System.out.println("Ingrese su nombre");
         var nombre = scanner.nextLine(); //? Se necesita este método para leer la cadena completa
         System.out.println("nombre = " + nombre);
+
+        //* COnersion de datos
+        System.out.println("Ingrese un valor entero");
+        var numeroEnter = Integer.parseInt(scanner.nextLine());
+        System.out.println("numeroEnter = " + numeroEnter);
+
+        System.out.println("Ingrese el valor de pi");
+        var numeroPi = Double.parseDouble(scanner.nextLine());
+        System.out.println("numeroPi = " + numeroPi);
+
+        //! Nota Se puede hacer lo mismo con las clases de [[Float, Long, etc]]
     }
 }
