@@ -45,6 +45,18 @@ public class EjemplosOperadores {
         boolean puedePrestarLibro = tieneCredencialEstudiante || viveADistancia;
         System.out.println("El libro de la bibilteca : " + (puedePrestarLibro?"Se puede prestar":"No se puede prestar"));
 
+        //*Calculo de area con Rectangulo
+        System.out.println("---------Calculadora de Area y Perimetro de un rectangulo --------------------------------");
+        System.out.print("Ingrese la base del rectangulo: ");
+        double base = Double.parseDouble(scanner.nextLine());
 
+        System.out.print("Ingrese la altura del rectangulo: ");
+        double altura = Double.parseDouble(scanner.nextLine());
+
+        double area = base * altura;
+        double perimeto = 2* (base + altura);
+
+        System.out.println("area = " + area);
+        System.out.println("perimeto = " + perimeto);
     }
 }
