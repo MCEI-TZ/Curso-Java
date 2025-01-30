@@ -5,6 +5,8 @@ public class EjemplosOperadores {
         //*Determinar si esta dentro de cierto rango
         var scanner = new Scanner(System.in);
 
+        System.out.println("---------Ejercicio Determinar numero dentro de cierto rango---------");
+
         System.out.print("Ingrese un numero inicial: ");
         int numInicial = Integer.parseInt(scanner.nextLine());
 
@@ -16,6 +18,20 @@ public class EjemplosOperadores {
 
         boolean estaDentroDeRango = numVerificar >= numInicial && numVerificar <= numFinal;
         System.out.println("Tu numero: " + (estaDentroDeRango?"Esta dentro del rango": "Esta fuera del rango"));
+
+
+        System.out.println("---------Ejercicio Tienda de Descuento VIP --------------------------------");
+        final var NO_PRODUCTOS_DESCUENTO = 10;
+        System.out.println("¿Cuantos productos compraste hoy?");
+        int numProductos = Integer.parseInt(scanner.nextLine());
+
+        System.out.println("Tienes membresia?");
+        boolean esVIP = Boolean.parseBoolean(scanner.nextLine());
+
+        boolean obtineDescuento = numProductos == NO_PRODUCTOS_DESCUENTO && esVIP;
+
+        System.out.println(" Usted :" + (obtineDescuento?"Tiene un descuento del 10%":"No tiene un descuento"));
+
 
 
     }
