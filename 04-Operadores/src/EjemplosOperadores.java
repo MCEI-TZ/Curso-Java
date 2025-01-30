@@ -25,19 +25,19 @@ public class EjemplosOperadores {
         System.out.println("¿Cuantos productos compraste hoy?");
         int numProductos = Integer.parseInt(scanner.nextLine());
 
-        System.out.println("Tienes membresia?");
+        System.out.println("Tienes membresia? (true , false)");
         boolean esVIP = Boolean.parseBoolean(scanner.nextLine());
 
-        boolean obtineDescuento = numProductos == NO_PRODUCTOS_DESCUENTO && esVIP;
+        boolean obtineDescuento = numProductos >= NO_PRODUCTOS_DESCUENTO && esVIP;
 
         System.out.println(" Usted :" + (obtineDescuento?"Tiene un descuento del 10%":"No tiene un descuento"));
 
         System.out.println("---------Sistema prestamos de libros --------------------------------");
 
-        System.out.println("Usted tiene credencial de estudiante?");
+        System.out.println("Usted tiene credencial de estudiante? (true,false)");
         boolean tieneCredencialEstudiante = Boolean.parseBoolean(scanner.nextLine());
 
-        System.out.println(" Usted vive a más de 3km?");
+        System.out.println(" Usted vive a más de 3km? (true, false)");
         boolean viveADistancia = Boolean.parseBoolean(scanner.nextLine());
 
         boolean puedePrestarLibro = tieneCredencialEstudiante || viveADistancia;
