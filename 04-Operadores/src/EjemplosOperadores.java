@@ -19,6 +19,8 @@ public class EjemplosOperadores {
         boolean estaDentroDeRango = numVerificar >= numInicial && numVerificar <= numFinal;
         System.out.println("Tu numero: " + (estaDentroDeRango?"Esta dentro del rango": "Esta fuera del rango"));
 
+        System.out.println("Tu numero esta fuera del rango?" + (!estaDentroDeRango ? "Si":"No"));
+
 
         System.out.println("---------Ejercicio Tienda de Descuento VIP --------------------------------");
         final var NO_PRODUCTOS_DESCUENTO = 10;
