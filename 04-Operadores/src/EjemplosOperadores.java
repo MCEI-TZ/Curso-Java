@@ -32,6 +32,16 @@ public class EjemplosOperadores {
 
         System.out.println(" Usted :" + (obtineDescuento?"Tiene un descuento del 10%":"No tiene un descuento"));
 
+        System.out.println("---------Sistema prestamos de libros --------------------------------");
+
+        System.out.println("Usted tiene credencial de estudiante?");
+        boolean tieneCredencialEstudiante = Boolean.parseBoolean(scanner.nextLine());
+
+        System.out.println(" Usted vive a más de 3km?");
+        boolean viveADistancia = Boolean.parseBoolean(scanner.nextLine());
+
+        boolean puedePrestarLibro = tieneCredencialEstudiante || viveADistancia;
+        System.out.println("El libro de la bibilteca : " + (puedePrestarLibro?"Se puede prestar":"No se puede prestar"));
 
 
     }
