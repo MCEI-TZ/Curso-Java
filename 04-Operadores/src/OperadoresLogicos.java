@@ -18,8 +18,8 @@ public class OperadoresLogicos {
         boolean not =!var1;
         System.out.println("Resultado NOT! var1 = " + not);
 
-        //? XOR bits si son diferentes
-        //var1 = false;
+        //? XOR (bits si son diferentes en memoeria)
+        //var1 = false; //Son diferentes en memoria
         //var2 = true;
         boolean xor = var1 ^ var2;
         System.out.println("Resultado XOR var1 ^ var2 = " + xor);
