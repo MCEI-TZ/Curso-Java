@@ -1,0 +1,63 @@
+# Archivos generados por el IDE de IntelliJ
+.idea/
+*.iml
+*.iws
+*.ipr
+*.ids
+*.orig
+/out/
+/.idea_modules/
+/.idea/workspace.xml
+/.idea/modules.xml
+/.idea/misc.xml
+/.idea/vcs.xml
+/.idea/shelf/
+/.idea/libraries/
+/.idea/tasks.xml
+/.idea/datasources.xml
+/.idea/dataSources.ids
+/.idea/sonarlint/
+/.idea/caches/
+
+# Archivos temporales de IntelliJ
+*.log
+*.tmp
+*.bak
+
+# Directorios de compilación y dependencias
+/target/
+/build/
+/bin/
+/.gradle/
+/libs/
+/dist/
+/*.jar
+/*.war
+/*.ear
+
+# Archivos de Maven (si usas Maven)
+dependency-reduced-pom.xml
+pom.xml.versionsBackup
+pom.xml.next
+
+# Archivos de Gradle (si usas Gradle)
+.gradle/
+build/
+!gradle/wrapper/gradle-wrapper.jar
+
+# Archivos de entorno y credenciales
+.env
+*.key
+*.keystore
+*.cert
+*.properties
+
+# Archivos del sistema operativo
+.DS_Store
+Thumbs.db
+*.lnk
+
+# Archivos temporales de editores
+*.swp
+*.swo
+~*
