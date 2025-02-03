@@ -1,0 +1,70 @@
+# IntelliJ IDEA
+.idea/
+*.iml
+*.ipr
+*.iws
+out/
+gen/
+
+# Maven
+target/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+
+# Gradle
+.gradle/
+build/
+gradle-app.setting
+!gradle-wrapper.jar
+
+# Logs y bases de datos
+*.log
+logs/
+temp/
+*.db
+*.sql
+*.sqlite
+
+# Archivos compilados
+*.class
+*.jar
+*.war
+*.ear
+*.nar
+*.zip
+*.tar.gz
+*.rar
+
+# Archivos del sistema
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Entornos
+.env
+.env.local
+.venv
+*.bak
+
+# Testing y coverage
+coverage/
+jacoco.exec
+*.jfr
+test-output/
+
+# Otros IDEs/Editores
+.vscode/
+*.swp
+*.swo
+~*.pbxuser
+*.~lock.*
+.settings/
+bin/
+tmp/
