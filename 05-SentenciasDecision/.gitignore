@@ -1,0 +1,45 @@
+# ===============================
+# Archivos y directorios generados por Java
+# ===============================
+# Archivos compilados
+*.class
+
+# Directorios de salida
+bin/
+build/
+out/
+
+# ===============================
+# Dependencias y herramientas de construcción
+# ===============================
+# Maven
+target/
+
+# Gradle
+.gradle/
+build/
+
+# ===============================
+# Archivos y directorios específicos de IntelliJ IDEA
+# ===============================
+# Configuración del proyecto de IntelliJ IDEA
+.idea/
+*.iml
+*.iws
+
+# Directorio de salida de IntelliJ IDEA (si se utiliza)
+out/
+
+# Archivos de configuración local (pueden contener rutas locales, configuraciones de usuario, etc.)
+.idea/workspace.xml
+.idea/tasks.xml
+
+# Diccionarios y configuraciones de bibliotecas personalizadas
+.idea/dictionaries
+.idea/libraries
+
+# ===============================
+# Archivos del sistema
+# ===============================
+.DS_Store
+Thumbs.db
