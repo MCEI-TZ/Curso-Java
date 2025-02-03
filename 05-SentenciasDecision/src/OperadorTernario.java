@@ -3,6 +3,7 @@ import java.util.Scanner;
 public class OperadorTernario {
     public static void main(String[] args) {
         var scanner = new Scanner(System.in);
+        //* Operador ternario
 
         System.out.println("Ingrese un numero");
         var numero = Integer.parseInt(scanner.nextLine());
