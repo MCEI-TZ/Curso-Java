@@ -20,6 +20,20 @@ public class CicloWhile {
             }
             contandor++;
         }
+
+        //Suma acumulativo
+        final int MAXIMO = 5;
+
+        int contandor2 = 1;
+        int acumulativo = 0;
+
+        System.out.println("----------------------------------------------------------------");
+        while (contandor2 <= MAXIMO){
+            acumulativo += contandor2;
+            contandor2++;
+        }
+        System.out.println("Suma de los primeros 5 numeros: " + acumulativo);
+
     }
 
 }
