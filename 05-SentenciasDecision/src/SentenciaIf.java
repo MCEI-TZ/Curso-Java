@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 public class SentenciaIf {
     public static void main(String[] args) {
-        //* Sentencia if
+        //* Sentencia if-else
         var scanner = new Scanner(System.in);
 
         System.out.println("Ingresa tu edad: ");
