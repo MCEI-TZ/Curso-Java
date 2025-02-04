@@ -24,6 +24,7 @@ public class MenuIterativo {
                 case 2 -> System.out.println("Modificando cuenta ...");
                 case 3 -> System.out.println("Eliminando cuenta ...");
                 case 4 -> salida = true;
+                default -> System.out.println("Opcion invalida. Intente de nuevo.");
             }
         }
     }
