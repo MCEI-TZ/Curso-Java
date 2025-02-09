@@ -20,9 +20,14 @@ public class Arrays {
         //* Reading of all the arryas in a variable
         System.out.println("Original array elements:");
         for (int number : numbers) {
-            System.out.println("-----Arrays of numbers-------");
             System.out.print(number + " ");
         }
 
+        //* Other way to define an array
+        var array1 = new int[] {1,2,3,4,5,6,7,8};
+        System.out.println("-----------------");
+        for (int array: array1 ){
+            System.out.print(array+ " ");
+        }
     }
 }
