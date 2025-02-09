@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public class Arrays {
     public static void main(String[] args) {
 
@@ -29,5 +31,38 @@ public class Arrays {
         for (int array: array1 ){
             System.out.print(array+ " ");
         }
+
+        System.out.println("--------------");
+        for (int i= 0; i < array1.length; i++){
+            System.out.println("array: "+ array1[i]);
+            i++;
+        }
+
+        //* Insert values into an array
+        var scanner = new Scanner(System.in);
+
+        System.out.print("Enter the number of elements you want to insert: ");
+        int arraylength = Integer.parseInt(scanner.nextLine());
+        var numbes = new int[arraylength];
+        for (int i=0; i < numbes.length; i++) {
+            System.out.println("Insert the value of  the array["+i+ "]");
+            numbes[i] = Integer.parseInt(scanner.nextLine());
+        }
+        System.out.println("Array with inserted elements:");
+        for (int number : numbes) {
+            System.out.print(number + " ");
+        }
+
+        //* Example scholar qualification
+        System.out.println("Introduce the number of qualification do you want to save:");
+        var qualification = Integer.parseInt(scanner.nextLine());
+        var qualificationArray = new int[qualification];
+        var plusQualification = 0;
+        for (int i=0; i < qualification; i++){
+            System.out.println("Introduce you calification ["+i+"]");
+            qualificationArray[i] = Integer.parseInt(scanner.nextLine());
+            plusQualification += qualificationArray[i];
+        }
+        System.out.println("Calification final "+ plusQualification/qualification);
     }
 }
