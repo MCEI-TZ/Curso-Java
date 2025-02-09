@@ -12,8 +12,15 @@ public class Arrays {
         numbers[1] = 20;
         numbers[2] = 30;
 
+        //* Reading one by one element
+        System.out.println("numbers[0] = " + numbers[0]);
+        System.out.println("numbers[1] = " + numbers[1]);
+        System.out.println("numbers[2] = " + numbers[2]);
+
+        //* Reading of all the arryas in a variable
         System.out.println("Original array elements:");
         for (int number : numbers) {
+            System.out.println("-----Arrays of numbers-------");
             System.out.print(number + " ");
         }
 
