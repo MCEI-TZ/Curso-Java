@@ -34,10 +34,16 @@ public class Matrix {
 
         var matrix3 = new int[rows][columns];
 
+        var plusDIagonal = 0;
+
         for (int i= 0; i<rows; i++) {
             for (int j= 0; j<columns; j++){
                 System.out.println("Insert the value of [" + i + "," + j + "]");
                 matrix3[i][j] = Integer.parseInt(scanner.nextLine());
+
+                if(i == j){
+                    plusDIagonal += matrix3[i][j];
+                }
             }
         }
 
@@ -46,5 +52,8 @@ public class Matrix {
                 System.out.println("Value of [" + i + "," + j + "] = "+matrix3[i][j]);
             }
         }
+
+        //* plus of a Matrix in diagonal
+        System.out.println("plusDIagonal = " + plusDIagonal);
     }
 }
