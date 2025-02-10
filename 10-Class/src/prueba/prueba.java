@@ -1,32 +1,12 @@
-//* Define the class
-public class Persona {
-    //* Define the atributes
-    private String name;
-    private String LastName;
-    private String email;
-    private int phoneNumber;
+package prueba;
 
-    //* Void Constructor
-    public Persona() {}
+import persona.Persona;
 
-    //* Constructor with parameters
-    public Persona(String name, String LastName){
-        this.name = name;
-        this.LastName = LastName;
-    }
-
-    //* Define the function
-    void showPerson(){
-        System.out.println("Name: " + name);
-        System.out.println("Last Name: " + LastName);
-        System.out.println("Email: " + email);
-        System.out.println("Phone Number: " + phoneNumber);
-    }
-
+public class prueba {
     public static void main(String[] args) {
-        System.out.println("Creation of Object Persona");
+        System.out.println("Creation of Object persona.Persona");
         var person1 = new Persona();
-        //* Create a new Persona
+        //* Create a new persona.Persona
         person1.name = "John";
         person1.LastName = "Doe";
         person1.email = "johndoe@example.com";
