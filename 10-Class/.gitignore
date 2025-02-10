@@ -1,29 +1,56 @@
-### IntelliJ IDEA ###
+# ================================
+# IntelliJ IDEA
+# ================================
+# Directorio de configuración del proyecto
+.idea/
+# Archivos de proyecto específicos de IntelliJ
+*.iml
+*.iws
+*.ipr
+# Directorio de salida (build)
 out/
-!**/src/main/**/out/
-!**/src/test/**/out/
 
-### Eclipse ###
-.apt_generated
-.classpath
-.factorypath
-.project
-.settings
-.springBeans
-.sts4-cache
-bin/
-!**/src/main/**/bin/
-!**/src/test/**/bin/
+# ================================
+# Compilados y empaquetados
+# ================================
+# Archivos de clase compilados
+*.class
+# Archivos empaquetados (jar, war, ear)
+*.jar
+*.war
+*.ear
 
-### NetBeans ###
-/nbproject/private/
-/nbbuild/
-/dist/
-/nbdist/
-/.nb-gradle/
+# ================================
+# Archivos de registro y temporales
+# ================================
+*.log
+*.tmp
+*.swp
+*~
 
-### VS Code ###
-.vscode/
+# ================================
+# Maven
+# ================================
+# Directorio de compilación de Maven
+target/
+# Archivos generados por Maven
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
 
-### Mac OS ###
+# ================================
+# Gradle
+# ================================
+# Directorio de compilación de Gradle
+.gradle/
+build/
+
+# ================================
+# Sistema Operativo
+# ================================
+# Archivos ocultos de macOS
 .DS_Store
+# Archivos ocultos de Windows
+Thumbs.db
