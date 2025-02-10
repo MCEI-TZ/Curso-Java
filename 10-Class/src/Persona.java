@@ -9,6 +9,7 @@ public class Persona {
     //* Void Constructor
     public Persona() {}
 
+    //* Constructor with parameters
     public Persona(String name, String LastName){
         this.name = name;
         this.LastName = LastName;
