@@ -6,6 +6,14 @@ public class Persona {
     private String email;
     private int phoneNumber;
 
+    //* Void Constructor
+    public Persona() {}
+
+    public Persona(String name, String LastName){
+        this.name = name;
+        this.LastName = LastName;
+    }
+
     //* Define the function
     void showPerson(){
         System.out.println("Name: " + name);
@@ -33,5 +41,9 @@ public class Persona {
         persona2.phoneNumber = 1876543210;
         //* Show the details of the persona2
         persona2.showPerson();
+
+        //* Create a new persona with Constructors
+        var person3 = new Persona("Pedro","Lopez");
+        person3.showPerson();
     }
 }
