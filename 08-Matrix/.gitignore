@@ -1,0 +1,56 @@
+# ================================
+# IntelliJ IDEA
+# ================================
+# Directorio de configuración del proyecto
+.idea/
+# Archivos de proyecto específicos de IntelliJ
+*.iml
+*.iws
+*.ipr
+# Directorio de salida (build)
+out/
+
+# ================================
+# Compilados y empaquetados
+# ================================
+# Archivos de clase compilados
+*.class
+# Archivos empaquetados (jar, war, ear)
+*.jar
+*.war
+*.ear
+
+# ================================
+# Archivos de registro y temporales
+# ================================
+*.log
+*.tmp
+*.swp
+*~
+
+# ================================
+# Maven
+# ================================
+# Directorio de compilación de Maven
+target/
+# Archivos generados por Maven
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+
+# ================================
+# Gradle
+# ================================
+# Directorio de compilación de Gradle
+.gradle/
+build/
+
+# ================================
+# Sistema Operativo
+# ================================
+# Archivos ocultos de macOS
+.DS_Store
+# Archivos ocultos de Windows
+Thumbs.db
