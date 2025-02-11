@@ -17,7 +17,7 @@ public class prueba {
         //* Show the details of the person1
         System.out.println(person1.toString());
 
-        System.out.println("Total of people: "+ Persona.contadorPerson);
+        Persona.CountPerson();
 
         //* Create a new person
         var persona2 = new Persona();
@@ -28,13 +28,13 @@ public class prueba {
         //* Show the details of the persona2
         System.out.println(persona2.toString());
 
-        System.out.println("Total of people: "+ Persona.contadorPerson);
+        Persona.CountPerson();
 
         //* Create a new persona with Constructors
         var person3 = new Persona("Pedro","Lopez");
         System.out.println(person3); //* if we don't call the method toString() then the IDE will check it if exists so it doesn't necessarily to call the method toString()
 
-        System.out.println("Total of people: "+ Persona.contadorPerson);
+        Persona.CountPerson();
 
 
     }

@@ -15,6 +15,11 @@ public class Persona {
         Persona.contadorPerson++;
     }
 
+    //* Static Methods
+    public static void CountPerson(){
+        System.out.println("Total of people: "+ contadorPerson);
+    }
+
     //* Constructor with parameters
     public Persona(String name, String LastName){
         this.name = name;
