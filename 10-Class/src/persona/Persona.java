@@ -2,6 +2,8 @@ package persona;
 
 //* Define the class
 public class Persona {
+
+    public static int contadorPerson = 0;
     //* Define the atributes
     private String name;
     private String LastName;
@@ -9,12 +11,15 @@ public class Persona {
     private int phoneNumber;
 
     //* Void Constructor
-    public Persona() {}
+    public Persona() {
+        Persona.contadorPerson++;
+    }
 
     //* Constructor with parameters
     public Persona(String name, String LastName){
         this.name = name;
         this.LastName = LastName;
+        Persona.contadorPerson++;
     }
 
 
