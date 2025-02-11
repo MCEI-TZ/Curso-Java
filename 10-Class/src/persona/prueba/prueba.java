@@ -12,7 +12,7 @@ public class prueba {
         person1.setEmail("johndoe@example.com");
         person1.setPhoneNumber(1234567890);
         //* Show the details of the person1
-        person1.showPerson();
+        System.out.println(person1.toString());
 
         //* Create a new person
         var persona2 = new Persona();
@@ -21,10 +21,10 @@ public class prueba {
         persona2.setEmail("janesmith@example.com");
         persona2.setPhoneNumber(1876543210);
         //* Show the details of the persona2
-        persona2.showPerson();
+        System.out.println(persona2.toString());
 
         //* Create a new persona with Constructors
         var person3 = new Persona("Pedro","Lopez");
-        person3.showPerson();
+        System.out.println(person3); //* if we don't call the method toString() then the IDE will check it if exists so it doesn't necessarily to call the method toString()
     }
 }

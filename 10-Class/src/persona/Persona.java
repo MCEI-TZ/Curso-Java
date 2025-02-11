@@ -17,13 +17,6 @@ public class Persona {
         this.LastName = LastName;
     }
 
-    //* Define the function
-    public void showPerson(){
-        System.out.println("Name: " + this.name);
-        System.out.println("Last Name: " + this.LastName);
-        System.out.println("Email: " + this.email);
-        System.out.println("Phone Number: " + this.phoneNumber);
-    }
 
     //* Getters and Setters
     public String getName() {
@@ -50,5 +43,16 @@ public class Persona {
     }
     public void setPhoneNumber(int phoneNumber) {
         this.phoneNumber = phoneNumber;
+    }
+
+    //* Override toString method to show the object info
+    @Override
+    public String toString() {
+        return "Persona{" +
+                "name='" + this.name + '\'' +
+                ", LastName='" + this.LastName + '\'' +
+                ", email='" + this.email + '\'' +
+                ", phoneNumber=" + this.phoneNumber +
+                '}';
     }
 }
