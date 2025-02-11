@@ -19,8 +19,17 @@ class Perro extends Animal {
 
     public static void main(String[] args) {
         System.out.println("-------Example of Herency-------");
+        //* Father class
         var animal1 = new Animal();
         animal1.eat();
         animal1.sleep();
+
+        //* Child class
+
+        var perro1 = new Perro();
+        perro1.eat();
+        perro1.sleep();
+        perro1.makeNosie();
+
     }
 }
