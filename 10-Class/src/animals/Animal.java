@@ -17,6 +17,16 @@ class Perro extends Animal {
         System.out.println("Gua Gua gua");
     }
 
+    @Override
+    protected void eat(){
+        System.out.println("Dog eating");
+    }
+
+    @Override
+    protected void sleep(){
+        System.out.println("Dog sleeping");
+    }
+
     public static void main(String[] args) {
         System.out.println("-------Example of Herency-------");
         //* Father class
@@ -33,3 +43,4 @@ class Perro extends Animal {
 
     }
 }
+
