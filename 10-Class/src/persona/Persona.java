@@ -3,7 +3,7 @@ package persona;
 //* Define the class
 public class Persona {
 
-    public static int contadorPerson = 0;
+    private static int contadorPerson = 0;
     //* Define the atributes
     private String name;
     private String LastName;
@@ -16,8 +16,8 @@ public class Persona {
     }
 
     //* Static Methods
-    public static void CountPerson(){
-        System.out.println("Total of people: "+ contadorPerson);
+    public static int getContadorPerson(){
+        return Persona.contadorPerson;
     }
 
     //* Constructor with parameters
