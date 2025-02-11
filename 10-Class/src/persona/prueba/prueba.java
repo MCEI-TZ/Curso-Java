@@ -1,4 +1,4 @@
-package prueba;
+package persona.prueba;
 
 import persona.Persona;
 
