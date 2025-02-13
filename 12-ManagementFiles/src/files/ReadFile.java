@@ -18,6 +18,7 @@ public class ReadFile {
             else {
                 var input = new BufferedReader(new FileReader(file));
                 String line;
+                //* Read File Line by Line
                 while ((line = input.readLine()) != null) {
                     System.out.println(line);
                 }
