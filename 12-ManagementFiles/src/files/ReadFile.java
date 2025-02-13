@@ -14,14 +14,12 @@ public class ReadFile {
         try {
             if (!file.exists()) {
                 System.out.println("The file does not exist.");
-                return;
             }
             else {
                 var input = new BufferedReader(new FileReader(file));
                 String line;
                 while ((line = input.readLine()) != null) {
                     System.out.println(line);
-                    line = input.readLine();
                 }
                 input.close();
             }
