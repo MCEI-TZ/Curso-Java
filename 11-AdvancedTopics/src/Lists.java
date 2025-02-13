@@ -4,7 +4,7 @@ import java.util.List;
 public class Lists {
     public static void main(String[] args) {
         //* Interface List
-        List myList = new ArrayList();
+        List<String> myList = new ArrayList<>(); //* Management of Generic
         myList.add("Monday");
         myList.add("Tuesday");
         myList.add("Wednesday");
@@ -14,7 +14,7 @@ public class Lists {
         myList.add("Sunday");
         myList.add("Monday"); //* In the interface List you can have values repeated
 
-        for (Object list : myList){
+        for (String list : myList){
             System.out.println("Day of the week: "+ list); //prints each element individually
         }
     }
