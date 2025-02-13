@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 //* Section Collections
 public class Lists {
@@ -14,13 +15,23 @@ public class Lists {
         myList.add("Sunday");
         myList.add("Monday"); //* In the interface List you can have values repeated
 
+        System.out.println("-------------Cycle For ----------------");
         for (String list : myList){
             System.out.println("Day of the week: "+ list); //prints each element individually
         }
 
         //* Lambda functions
+        System.out.println("----------------Lambda Functions ----------------");
         myList.forEach(element -> {
             System.out.println("Day of the week: "+ element); //prints each element individually
         });
+
+        //* Reference Functions
+        System.out.println("----------------Reference Functions ----------------");
+        myList.forEach(System.out::println);
+
+        System.out.println("----------------------------------------------------");
+        List<String> names = Arrays.asList("John", "Pedro", "Peter");
+        names.forEach(System.out::println);
     }
 }
