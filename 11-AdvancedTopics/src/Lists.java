@@ -17,5 +17,10 @@ public class Lists {
         for (String list : myList){
             System.out.println("Day of the week: "+ list); //prints each element individually
         }
+
+        //* Lambda functions
+        myList.forEach(element -> {
+            System.out.println("Day of the week: "+ element); //prints each element individually
+        });
     }
 }
