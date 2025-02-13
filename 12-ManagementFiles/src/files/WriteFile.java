@@ -23,7 +23,6 @@ public class WriteFile {
         }
         catch (Exception e){
             System.err.println("Error writing to the file: " + e.getMessage());
-            e.printStackTrace();
         }
     }
 }
