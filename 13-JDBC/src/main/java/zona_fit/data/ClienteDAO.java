@@ -149,6 +149,21 @@ public class ClienteDAO implements IClienteDAO{
 
     @Override
     public boolean deleteCliente(Cliente cliente) {
+        PreparedStatement ps;
+        Connection conn = Conection.getConection();
+        var sql = "DELETE FROM Cliente WHERE IdCliente=?";
+        try{
+            ps = conn.prepareStatement(sql);
+            ps.setInt(1,cliente.getIdCliente());
+
+            int rowsUpdated = ps.executeUpdate();
+
+            return rowsUpdated > 0;
+        }
+        catch (Exception e){
+            System.out.println("Error to delete the Client: "+ e.getMessage());
+            e.printStackTrace();
+        }
         return false;
     }
 
@@ -174,11 +189,20 @@ public class ClienteDAO implements IClienteDAO{
 //        clientes.forEach(System.out::println);
 
         //* Update Client
-        var updatedClient = new Cliente(6,"Pedro","Rodriguez",300);
-        var update = clienteDAO.updateCliente(updatedClient);
-        if(update) System.out.println("Client updated successfully: " + updatedClient);
-        else System.out.println("Error to update client" + updatedClient);
+//        var updatedClient = new Cliente(6,"Pedro","Rodriguez",300);
+//        var update = clienteDAO.updateCliente(updatedClient);
+//        if(update) System.out.println("Client updated successfully: " + updatedClient);
+//        else System.out.println("Error to update client" + updatedClient);
+//        List<Cliente> clientes = clienteDAO.listClients();
+//        clientes.forEach(System.out::println);
+
+        //* Delete Client
+        var deletedClient = new Cliente(8);
+        var delete = clienteDAO.deleteCliente(deletedClient);
+        if(delete) System.out.println("Client deleted successfully: " + deletedClient);
+        else System.out.println("Error to delete client" + deletedClient);
         List<Cliente> clientes = clienteDAO.listClients();
         clientes.forEach(System.out::println);
+
     }
 }
