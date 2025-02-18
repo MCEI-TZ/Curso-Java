@@ -5,7 +5,7 @@ import java.util.Objects;
 public class Cliente {
     private  int IdCliente;
     private  String name;
-    private  String lasName;
+    private  String lastName;
     private int membresy;
 
     public Cliente(){}
@@ -14,14 +14,14 @@ public class Cliente {
         this.IdCliente = idCliente;
     }
 
-    public Cliente(String name, String lasName, int membresy){
+    public Cliente(String name, String lastName, int membresy){
         this.name = name;
-        this.lasName = lasName;
+        this.lastName = lastName;
         this.membresy = membresy;
     }
 
-    public Cliente(int idCliente, String name, String lasName, int membresy){
-        this(name, lasName, membresy);
+    public Cliente(int idCliente, String name, String lastName, int membresy){
+        this(name, lastName, membresy);
         this.IdCliente = idCliente;
     }
 
@@ -41,12 +41,12 @@ public class Cliente {
         this.name = name;
     }
 
-    public String getLasName() {
-        return lasName;
+    public String getLastName() {
+        return lastName;
     }
 
-    public void setLasName(String lasName) {
-        this.lasName = lasName;
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
     public int getMembresy() {
@@ -62,7 +62,7 @@ public class Cliente {
         return "Cliente{" +
                 "IdCliente=" + IdCliente +
                 ", name='" + name + '\'' +
-                ", lasName='" + lasName + '\'' +
+                ", lastName='" + lastName + '\'' +
                 ", membresy=" + membresy +
                 '}';
     }
@@ -71,11 +71,11 @@ public class Cliente {
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
         Cliente cliente = (Cliente) o;
-        return IdCliente == cliente.IdCliente && membresy == cliente.membresy && Objects.equals(name, cliente.name) && Objects.equals(lasName, cliente.lasName);
+        return IdCliente == cliente.IdCliente && membresy == cliente.membresy && Objects.equals(name, cliente.name) && Objects.equals(lastName, cliente.lastName);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(IdCliente, name, lasName, membresy);
+        return Objects.hash(IdCliente, name, lastName, membresy);
     }
 }

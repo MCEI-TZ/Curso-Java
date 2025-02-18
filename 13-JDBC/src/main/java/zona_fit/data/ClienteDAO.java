@@ -24,9 +24,9 @@ public class ClienteDAO implements IClienteDAO{
             while (rs.next()) {
                 var client = new Cliente();
                 client.setIdCliente(rs.getInt("IdCliente"));
-                client.setName(rs.getString("Name"));
-                client.setLasName(rs.getString("LastName"));
-                client.setMembresy(rs.getInt("Membresy"));
+                client.setName(rs.getString("name"));
+                client.setLastName(rs.getString("lastName"));
+                client.setMembresy(rs.getInt("membresy"));
 
                 clientes.add(client);
             }
@@ -62,8 +62,8 @@ public class ClienteDAO implements IClienteDAO{
                 rs = ps.executeQuery();
                 if(rs.next()){
                     cliente.setName(rs.getString("name"));
-                    cliente.setLasName(rs.getString("LastName"));
-                    cliente.setMembresy(rs.getInt("Membresy"));
+                    cliente.setLastName(rs.getString("lastName"));
+                    cliente.setMembresy(rs.getInt("membresy"));
                     return true;
                 }
             }
@@ -86,6 +86,32 @@ public class ClienteDAO implements IClienteDAO{
 
     @Override
     public boolean addCliente(Cliente cliente) {
+        PreparedStatement ps;
+        Connection conn = Conection.getConection();
+        var sql = "INSERT INTO Cliente(name, lastName, membresy) VALUES (?,?,?)";
+        try{
+            ps = conn.prepareStatement(sql);
+            ps.setString(1,cliente.getName());
+            ps.setString(2,cliente.getLastName());
+            ps.setInt(3,cliente.getMembresy());
+
+            int rowsUpdated = ps.executeUpdate();
+
+            return rowsUpdated > 0;
+        }
+        catch (Exception e) {
+            System.out.println("Error to add the Client: "+ e.getMessage());
+            e.printStackTrace();
+        }
+        finally {
+            if (conn!= null) {
+                try {
+                    conn.close();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        }
         return false;
     }
 
@@ -106,10 +132,18 @@ public class ClienteDAO implements IClienteDAO{
 //        clientes.forEach(System.out::println);
 
         //* List Client By Id
-        var client = new Cliente(7);
-        System.out.println("client before research = " + client);
-        var find = clienteDAO.listById(client);
-        if(find) System.out.println("found client" + client);
-        else System.out.println("client not found " + client.getIdCliente());
+//        var client = new Cliente(2);
+//        System.out.println("client before research = " + client);
+//        var find = clienteDAO.listById(client);
+//        if(find) System.out.println("found client: " + client);
+//        else System.out.println("client not found " + client.getIdCliente());
+
+        //* Add Client
+        var newClient = new Cliente("John","Perez",500);
+        var add = clienteDAO.addCliente(newClient);
+        if(add) System.out.println("Client added successfully: " + newClient);
+        else System.out.println("Error to add client" + newClient);
+        List<Cliente> clientes = clienteDAO.listClients();
+        clientes.forEach(System.out::println);
     }
 }
