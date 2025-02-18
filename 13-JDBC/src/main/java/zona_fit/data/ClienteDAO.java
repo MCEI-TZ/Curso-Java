@@ -48,6 +48,39 @@ public class ClienteDAO implements IClienteDAO{
 
     @Override
     public boolean listById(Cliente cliente) {
+        PreparedStatement ps;
+        ResultSet rs;
+        Connection conn = Conection.getConection();
+        var sql = "SELECT * FROM Cliente WHERE IdCliente = ?";
+        try{
+            ps = conn.prepareStatement(sql);
+            ps.setInt(1,cliente.getIdCliente());
+            rs = ps.executeQuery();
+            if(rs.next()){
+                ps = conn.prepareStatement(sql);
+                ps.setInt(1,cliente.getIdCliente());
+                rs = ps.executeQuery();
+                if(rs.next()){
+                    cliente.setName(rs.getString("name"));
+                    cliente.setLasName(rs.getString("LastName"));
+                    cliente.setMembresy(rs.getInt("Membresy"));
+                    return true;
+                }
+            }
+        }
+        catch (Exception e) {
+            System.out.println("Error to find the idClient");
+            e.printStackTrace();
+        }
+        finally {
+            if (conn != null) {
+                try {
+                    conn.close();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        }
         return false;
     }
 
@@ -67,8 +100,16 @@ public class ClienteDAO implements IClienteDAO{
     }
 
     public static void main(String[] args) {
+        //* List CLients
         ClienteDAO clienteDAO = new ClienteDAO();
-        List<Cliente> clientes = clienteDAO.listClients();
-        clientes.forEach(System.out::println);
+//        List<Cliente> clientes = clienteDAO.listClients();
+//        clientes.forEach(System.out::println);
+
+        //* List Client By Id
+        var client = new Cliente(7);
+        System.out.println("client before research = " + client);
+        var find = clienteDAO.listById(client);
+        if(find) System.out.println("found client" + client);
+        else System.out.println("client not found " + client.getIdCliente());
     }
 }
