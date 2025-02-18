@@ -166,43 +166,4 @@ public class ClienteDAO implements IClienteDAO{
         }
         return false;
     }
-
-    public static void main(String[] args) {
-        //* List CLients
-        ClienteDAO clienteDAO = new ClienteDAO();
-//        List<Cliente> clientes = clienteDAO.listClients();
-//        clientes.forEach(System.out::println);
-
-        //* List Client By Id
-//        var client = new Cliente(2);
-//        System.out.println("client before research = " + client);
-//        var find = clienteDAO.listById(client);
-//        if(find) System.out.println("found client: " + client);
-//        else System.out.println("client not found " + client.getIdCliente());
-
-        //* Add Client
-//        var newClient = new Cliente("John","Perez",500);
-//        var add = clienteDAO.addCliente(newClient);
-//        if(add) System.out.println("Client added successfully: " + newClient);
-//        else System.out.println("Error to add client" + newClient);
-//        List<Cliente> clientes = clienteDAO.listClients();
-//        clientes.forEach(System.out::println);
-
-        //* Update Client
-//        var updatedClient = new Cliente(6,"Pedro","Rodriguez",300);
-//        var update = clienteDAO.updateCliente(updatedClient);
-//        if(update) System.out.println("Client updated successfully: " + updatedClient);
-//        else System.out.println("Error to update client" + updatedClient);
-//        List<Cliente> clientes = clienteDAO.listClients();
-//        clientes.forEach(System.out::println);
-
-        //* Delete Client
-        var deletedClient = new Cliente(8);
-        var delete = clienteDAO.deleteCliente(deletedClient);
-        if(delete) System.out.println("Client deleted successfully: " + deletedClient);
-        else System.out.println("Error to delete client" + deletedClient);
-        List<Cliente> clientes = clienteDAO.listClients();
-        clientes.forEach(System.out::println);
-
-    }
 }
