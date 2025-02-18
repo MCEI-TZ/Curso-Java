@@ -1,18 +1,24 @@
 package zona_fit.presentation;
 
 import zona_fit.data.ClienteDAO;
+import zona_fit.data.IClienteDAO;
 import zona_fit.domain.Cliente;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class zona_fit_menu {
     public static void main(String[] args) {
-        var scan = new Scanner(System.in);
-        var domainOptions = new ClienteDAO();
-        var exit = false;
 
-        System.out.println("----------Zona FIT MENU----------");
-        System.out.println("""
+        try {
+            var scan = new Scanner(System.in);
+            IClienteDAO clienteDAO = new ClienteDAO();
+            var exit = false;
+
+            while (!exit) {
+                System.out.println("----------Zona FIT MENU----------");
+                System.out.println("""
                 Select an option:
                 1. List clients
                 2. Search client by ID
@@ -23,17 +29,21 @@ public class zona_fit_menu {
                 
                 Select an option:
                 """);
-        int option = Integer.parseInt(scan.nextLine());
+                int option = Integer.parseInt(scan.nextLine());
 
-        try {
-            while (!exit) {
                 switch (option) {
-                    case 1 -> domainOptions.listClients();
+                    case 1 -> {
+                        var clients = clienteDAO.listClients();
+                        System.out.println("-------------List of Clients-------------------");
+                        clients.forEach(System.out::println);
+                    }
                     case 2 -> {
                         System.out.println("Insert the IdCliente that you want to research: ");
                         var idClientList = Integer.parseInt(scan.nextLine());
                         var client = new Cliente(idClientList);
-                        domainOptions.listById(client);
+                        clienteDAO.listById(client);
+                        System.out.println("-----IdClient found it:------");
+                        System.out.println(client);
                     }
                     case 3 -> {
                         System.out.println("Insert the data of the cliente: ");
@@ -44,7 +54,8 @@ public class zona_fit_menu {
                         System.out.println("Membresy:");
                         var membresy = Integer.parseInt(scan.nextLine());
                         var newClient = new Cliente(name, lastName, membresy);
-                        domainOptions.addCliente(newClient);
+                        clienteDAO.addCliente(newClient);
+                        System.out.println("----Client created sucessfully----");
                     }
                     case 4 -> {
                         System.out.println("Insert the data of the cliente that you want to update: ");
@@ -57,15 +68,18 @@ public class zona_fit_menu {
                         System.out.println("Membresy:");
                         var membresyUpdate = Integer.parseInt(scan.nextLine());
                         var updatedClient = new Cliente(idClientUpdate, nameUpdate, lastNameUpdate, membresyUpdate);
-                        domainOptions.updateCliente(updatedClient);
+                        clienteDAO.updateCliente(updatedClient);
+                        System.out.println("----Client updated sucessfully----");
                     }
                     case 5 -> {
                         System.out.println("Insert the IdCliente that you want to delete: ");
                         var idClientDelete = Integer.parseInt(scan.nextLine());
                         var deletedClient = new Cliente(idClientDelete);
-                        domainOptions.deleteCliente(deletedClient);
+                        clienteDAO.deleteCliente(deletedClient);
+                        System.out.println("----Client deleted sucessfully----");
                     }
                     case 6 -> exit = true;
+                    default -> System.out.println("Invalid option");
                 }
             }
 
