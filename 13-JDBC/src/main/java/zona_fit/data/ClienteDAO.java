@@ -117,7 +117,34 @@ public class ClienteDAO implements IClienteDAO{
 
     @Override
     public boolean updateCliente(Cliente cliente) {
-        return false;
+        PreparedStatement ps;
+        Connection conn = Conection.getConection();
+        var sql = "UPDATE Cliente SET name=?, lastName=?, membresy=? WHERE IdCliente=?";
+        try{
+            ps = conn.prepareStatement(sql);
+            ps.setString(1,cliente.getName());
+            ps.setString(2,cliente.getLastName());
+            ps.setInt(3,cliente.getMembresy());
+            ps.setInt(4,cliente.getIdCliente());
+
+            int rowsUpdated = ps.executeUpdate();
+
+            return rowsUpdated > 0;
+        }
+        catch (Exception e){
+            System.out.println("Error to update the Client: "+ e.getMessage());
+            e.printStackTrace();
+        }
+        finally {
+            if (conn!= null) {
+                try {
+                    conn.close();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+        return  false;
     }
 
     @Override
@@ -139,10 +166,18 @@ public class ClienteDAO implements IClienteDAO{
 //        else System.out.println("client not found " + client.getIdCliente());
 
         //* Add Client
-        var newClient = new Cliente("John","Perez",500);
-        var add = clienteDAO.addCliente(newClient);
-        if(add) System.out.println("Client added successfully: " + newClient);
-        else System.out.println("Error to add client" + newClient);
+//        var newClient = new Cliente("John","Perez",500);
+//        var add = clienteDAO.addCliente(newClient);
+//        if(add) System.out.println("Client added successfully: " + newClient);
+//        else System.out.println("Error to add client" + newClient);
+//        List<Cliente> clientes = clienteDAO.listClients();
+//        clientes.forEach(System.out::println);
+
+        //* Update Client
+        var updatedClient = new Cliente(6,"Pedro","Rodriguez",300);
+        var update = clienteDAO.updateCliente(updatedClient);
+        if(update) System.out.println("Client updated successfully: " + updatedClient);
+        else System.out.println("Error to update client" + updatedClient);
         List<Cliente> clientes = clienteDAO.listClients();
         clientes.forEach(System.out::println);
     }
