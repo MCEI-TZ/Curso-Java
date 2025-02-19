@@ -15,16 +15,21 @@
     </properties>
 
     <dependencies>
+        <!-- Hibernate Core -->
         <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-core</artifactId>
             <version>6.5.3.Final</version>
         </dependency>
+
+        <!-- MySQL Connector -->
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
             <version>8.0.33</version>
         </dependency>
+
+        <!-- Log4j para logging -->
         <dependency>
             <groupId>org.apache.logging.log4j</groupId>
             <artifactId>log4j-api</artifactId>
@@ -36,7 +41,11 @@
             <version>2.23.1</version>
         </dependency>
 
-
+        <!-- Jakarta Persistence API (opcional, ya que Hibernate incluye jakarta.persistence) -->
+        <dependency>
+            <groupId>jakarta.persistence</groupId>
+            <artifactId>jakarta.persistence-api</artifactId>
+            <version>3.1.0</version>
+        </dependency>
     </dependencies>
-
 </project>
