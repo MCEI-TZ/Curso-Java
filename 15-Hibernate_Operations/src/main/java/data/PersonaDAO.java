@@ -22,4 +22,20 @@ public class PersonaDAO {
             System.out.println(p);
         }
     }
+
+    public void InsertPerson(Persona person){
+        try{
+            em.getTransaction().begin();
+            em.persist(person);
+            em.getTransaction().commit();
+        }
+        catch (Exception e){
+            em.getTransaction().rollback();
+            System.out.println(e.getMessage());
+        }
+        finally {
+            em.close();
+            emf.close();
+        }
+    }
 }
