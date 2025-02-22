@@ -2,12 +2,7 @@ package main;
 
 import data.PersonaDAO;
 import domain.Persona;
-import jakarta.persistence.EntityManager;
-import jakarta.persistence.EntityManagerFactory;
-import jakarta.persistence.Persistence;
-import jakarta.persistence.Query;
 
-import java.util.List;
 import java.util.Scanner;
 
 public class HibernatePU {
@@ -24,7 +19,8 @@ public class HibernatePU {
                     2. Search People by Id
                     3. Insert Person
                     4. Update Person
-                    5. Exit
+                    5. Delete Person
+                    6. Exit
                     
                     Please enter your choice:
                     """);
@@ -39,7 +35,7 @@ public class HibernatePU {
                     Persona person1 = new Persona();
                     person1.setIdPersona(idPersona);
 
-                    person.SearchPersonById(person1);
+                    person.searchPersonById(person1);
                 }
                 case 3 -> { //* Insert person
                     System.out.println("---Provide the data for the person---\n");
@@ -58,7 +54,7 @@ public class HibernatePU {
                     person2.setEmail(email);
                     person2.setPhone(phone);
 
-                    person.InsertPerson(person2);
+                    person.insertPerson(person2);
                     System.out.println("\n\t----person created successfully----");
                 }
                 case 4 -> { //* Update person
@@ -76,17 +72,27 @@ public class HibernatePU {
 
                     Persona person3 = new Persona();
                     person3.setIdPersona(idPersona);
-                    person3 = person.SearchPersonById(person3);
+                    person3 = person.searchPersonById(person3);
 
                     person3.setName(name);
                     person3.setLastName(lastName);
                     person3.setEmail(email);
                     person3.setPhone(phone);
-                    person.UpdatePerson(person3);
+                    person.updatePerson(person3);
                     System.out.println("\n\t----person updated successfully----");
 
                 }
-                case 5 -> exit = true;
+                case 5 ->{
+                    System.out.println("--Provide the id of the person you want to delete--");
+                    int idPersona = Integer.parseInt(scan.nextLine());
+
+                    Persona person4 = new Persona();
+                    person4.setIdPersona(idPersona);
+
+                    person.deletePerson(person4);
+                    System.out.println("\n\t----person deleted successfully----");
+                }
+                case 6 -> exit = true;
 
                 default -> System.out.println("Invalid option");
             }
