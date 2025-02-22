@@ -23,7 +23,7 @@ public class PersonaDAO {
         }
     }
 
-    public void InsertPerson(Persona person){
+    public void insertPerson(Persona person){
         try{
             em.getTransaction().begin();
             em.persist(person);
@@ -33,13 +33,9 @@ public class PersonaDAO {
             em.getTransaction().rollback();
             System.out.println(e.getMessage());
         }
-//        finally {
-//            em.close();
-//            emf.close();
-//        }
     }
 
-    public void UpdatePerson(Persona person){
+    public void updatePerson(Persona person){
         try{
             em.getTransaction().begin();
             em.merge(person);
@@ -49,15 +45,24 @@ public class PersonaDAO {
             em.getTransaction().rollback();
             System.out.println(e.getMessage());
         }
-//        finally {
-//            em.close();
-//            emf.close();
-//        }
     }
 
-    public Persona SearchPersonById(Persona p){
+    public Persona searchPersonById(Persona p){
             Persona persona = em.find(Persona.class, p.getIdPersona());
             System.out.println(persona);
             return persona;
+    }
+
+    public void deletePerson(Persona p){
+        try{
+            em.getTransaction().begin();
+            Persona persona = em.find(Persona.class, p.getIdPersona());
+            em.remove(persona);
+            em.getTransaction().commit();
+        }
+        catch (Exception e){
+            em.getTransaction().rollback();
+            System.out.println(e.getMessage());
+        }
     }
 }
