@@ -33,9 +33,31 @@ public class PersonaDAO {
             em.getTransaction().rollback();
             System.out.println(e.getMessage());
         }
-        finally {
-            em.close();
-            emf.close();
+//        finally {
+//            em.close();
+//            emf.close();
+//        }
+    }
+
+    public void UpdatePerson(Persona person){
+        try{
+            em.getTransaction().begin();
+            em.merge(person);
+            em.getTransaction().commit();
         }
+        catch (Exception e){
+            em.getTransaction().rollback();
+            System.out.println(e.getMessage());
+        }
+//        finally {
+//            em.close();
+//            emf.close();
+//        }
+    }
+
+    public Persona SearchPersonById(Persona p){
+            Persona persona = em.find(Persona.class, p.getIdPersona());
+            System.out.println(persona);
+            return persona;
     }
 }
