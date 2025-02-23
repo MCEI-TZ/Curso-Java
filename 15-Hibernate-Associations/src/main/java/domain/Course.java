@@ -3,6 +3,7 @@ package domain;
 import jakarta.persistence.*;
 
 import java.io.Serializable;
+import java.util.List;
 import java.util.Objects;
 
 @Entity
@@ -18,6 +19,9 @@ public class Course implements Serializable {
     private String name;
 
     private Double price;
+
+    @OneToMany(mappedBy = "course")
+    List<Assignment> assignments;
 
     public Course() {}
 
@@ -47,6 +51,14 @@ public class Course implements Serializable {
 
     public void setPrice(Double price) {
         this.price = price;
+    }
+
+    public List<Assignment> getAssignments() {
+        return assignments;
+    }
+
+    public void setAssignments(List<Assignment> assignments) {
+        this.assignments = assignments;
     }
 
     @Override
