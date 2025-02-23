@@ -3,9 +3,11 @@ package main;
 import data.AddressDAO;
 import data.ContactDAO;
 import data.CourseDAO;
+import data.StudentDAO;
 import domain.Address;
 import domain.Contact;
 import domain.Course;
+import domain.Student;
 
 import java.util.Scanner;
 
@@ -17,7 +19,8 @@ public class HibernateJPA {
                 1. Addresses
                 2. Contacts
                 3. Course
-                4. Exit
+                4. Students
+                5. Exit
                 
                 Please enter your choice:
                 """);
@@ -27,8 +30,119 @@ public class HibernateJPA {
             case 1 -> AddressOperations();
             case 2 -> ContactOperations();
             case 3 -> CourseOperations();
-            case 4 -> exit = true;
+            case 4 -> StudentOperations();
+            case 5 -> exit = true;
             default -> System.out.println("Invalid option. Please try again.");
+        }
+    }
+    public static void StudentOperations(){
+        var exit= false;
+        var scan = new Scanner(System.in);
+        var studentDAO = new StudentDAO();
+        var addressDAO = new AddressDAO();
+        var contactDAO = new ContactDAO();
+
+        while (!exit){
+            System.out.println("""
+                    ******---Main Menu--******
+                    
+                    1. List student
+                    2. Search student by Id
+                    3. Insert Student
+                    4. Update Student
+                    5. Delete Student
+                    6. Exit
+                    
+                    Please enter your choice:
+                    """);
+            int choice = Integer.parseInt(scan.nextLine());
+
+            switch (choice){
+                case 1 -> studentDAO.listStudents(); //* List students
+                case 2 -> {
+                    System.out.println("--Provide the id of the student you want to search--");
+                    int idStudent = Integer.parseInt(scan.nextLine());
+
+                    var student1 = new Student();
+                    student1.setIdStudent(idStudent);
+
+                    studentDAO.SearchStudentById(student1);
+                }
+                case 3 -> { //* Insert student
+                    System.out.println("---Provide the data for the student---\n");
+
+                    System.out.println("Enter idAddress:");
+                    int idAddress = Integer.parseInt(scan.nextLine());
+                    var address = new Address();
+                    address.setIdAdress(idAddress);
+
+                    System.out.println("Enter idContact:");
+                    int idContact = Integer.parseInt(scan.nextLine());
+                    var contact = new Contact();
+                    contact.setIdContact(idContact);
+
+                    System.out.println("Enter student name:");
+                    String name = scan.nextLine();
+
+                    System.out.println("Enter student last name:");
+                    String lastName = scan.nextLine();
+
+                    var student2 = new Student();
+                    student2.setName(name);
+                    student2.setLastName(lastName);
+                    student2.setAddress(address);
+                    student2.setContact(contact);
+
+                    studentDAO.addStudent(student2);
+                    System.out.println("\n\t----Student created successfully----");
+                }
+
+                case 4 -> { //* Update student
+                    System.out.println("--Provide the id of the student you want to update--");
+                    int idStudent = Integer.parseInt(scan.nextLine());
+
+                    System.out.println("Enter idAddress:");
+                    int idAddress = Integer.parseInt(scan.nextLine());
+                    var address = new Address();
+                    address.setIdAdress(idAddress);
+
+                    System.out.println("Enter idContact:");
+                    int idContact = Integer.parseInt(scan.nextLine());
+                    var contact = new Contact();
+                    contact.setIdContact(idContact);
+
+                    System.out.println("Enter student name:");
+                    String name = scan.nextLine();
+
+                    System.out.println("Enter student last name:");
+                    String lastName = scan.nextLine();
+
+                    var student3 = new Student();
+                    student3.setIdStudent(idStudent);
+                    student3 = studentDAO.SearchStudentById(student3);
+
+                    student3.setAddress(address);
+                    student3.setContact(contact);
+                    student3.setName(name);
+                    student3.setLastName(lastName);
+                    studentDAO.updateStudent(student3);
+                    System.out.println("\n\t----course updated successfully----");
+
+                }
+                case 5 ->{
+                    System.out.println("--Provide the id of the student you want to delete--");
+                    int idStudent = Integer.parseInt(scan.nextLine());
+
+                    var student4 = new Student();
+                    student4.setIdStudent(idStudent);
+
+                    studentDAO.deleteStudent(student4);
+                    System.out.println("\n\t----student deleted successfully----");
+                }
+                case 6 -> exit = true;
+
+                default -> System.out.println("Invalid option");
+            }
         }
     }
 
