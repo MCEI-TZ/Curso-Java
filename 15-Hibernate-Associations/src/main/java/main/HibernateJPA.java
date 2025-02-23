@@ -2,8 +2,10 @@ package main;
 
 import data.AddressDAO;
 import data.ContactDAO;
+import data.CourseDAO;
 import domain.Address;
 import domain.Contact;
+import domain.Course;
 
 import java.util.Scanner;
 
@@ -14,7 +16,8 @@ public class HibernateJPA {
         System.out.println("""
                 1. Addresses
                 2. Contacts
-                3. Exit
+                3. Course
+                4. Exit
                 
                 Please enter your choice:
                 """);
@@ -23,8 +26,90 @@ public class HibernateJPA {
         switch (intChoice){
             case 1 -> AddressOperations();
             case 2 -> ContactOperations();
-            case 3 -> exit = true;
+            case 3 -> CourseOperations();
+            case 4 -> exit = true;
             default -> System.out.println("Invalid option. Please try again.");
+        }
+    }
+
+    public static void CourseOperations(){
+        var exit= false;
+        var scan = new Scanner(System.in);
+        var courseDAO = new CourseDAO();
+
+        while (!exit){
+            System.out.println("""
+                    ******---Main Menu--******
+                    
+                    1. List courses
+                    2. Search Course by Id
+                    3. Insert Course
+                    4. Update Course
+                    5. Delete Course
+                    6. Exit
+                    
+                    Please enter your choice:
+                    """);
+            int choice = Integer.parseInt(scan.nextLine());
+
+            switch (choice){
+                case 1 -> courseDAO.listCourses(); //* List courses
+                case 2 -> {
+                    System.out.println("--Provide the id of the course you want to search--");
+                    int idCourse = Integer.parseInt(scan.nextLine());
+
+                    Course course1 = new Course();
+                    course1.setIdCourse(idCourse);
+
+                    courseDAO.searchById(course1);
+                }
+                case 3 -> { //* Insert course
+                    System.out.println("---Provide the data for the course---\n");
+                    System.out.println("Enter name:");
+                    String name = scan.nextLine();
+                    System.out.println("Enter price:");
+                    var price = Double.parseDouble(scan.nextLine());
+
+                    var course2 = new Course();
+                    course2.setName(name);
+                    course2.setPrice(price);
+
+                    courseDAO.addCourse(course2);
+                    System.out.println("\n\t----course created successfully----");
+                }
+                case 4 -> { //* Update course
+                    System.out.println("--Provide the id of the course you want to update--");
+                    int idCourse = Integer.parseInt(scan.nextLine());
+
+                    System.out.println("Enter name:");
+                    String name = scan.nextLine();
+                    System.out.println("Enter price:");
+                    var price = Double.parseDouble(scan.nextLine());
+
+                    var course3 = new Course();
+                    course3.setIdCourse(idCourse);
+                    course3 = courseDAO.searchById(course3);
+
+                    course3.setName(name);
+                    course3.setPrice(price);
+                    courseDAO.updateCourse(course3);
+                    System.out.println("\n\t----course updated successfully----");
+
+                }
+                case 5 ->{
+                    System.out.println("--Provide the id of the course you want to delete--");
+                    int idCourse = Integer.parseInt(scan.nextLine());
+
+                    var course4 = new Course();
+                    course4.setIdCourse(idCourse);
+
+                    courseDAO.deleteCourse(course4);
+                    System.out.println("\n\t----course deleted successfully----");
+                }
+                case 6 -> exit = true;
+
+                default -> System.out.println("Invalid option");
+            }
         }
     }
 
