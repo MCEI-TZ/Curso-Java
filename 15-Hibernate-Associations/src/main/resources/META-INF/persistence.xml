@@ -6,6 +6,9 @@
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
         <class>domain.Address</class>
         <class>domain.Contact</class>
+        <class>domain.Course</class>
+        <class>domain.Student</class>
+        <class>domain.Assignment</class>
         <properties>
             <property name="jakarta.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/sga?useSSL=true&amp;useTimezone=true&amp;serverTimezone=UTC"/>
             <property name="jakarta.persistence.jdbc.user" value="Mexz"/>
