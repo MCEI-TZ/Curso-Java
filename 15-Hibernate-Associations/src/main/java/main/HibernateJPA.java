@@ -7,6 +7,24 @@ import java.util.Scanner;
 
 public class HibernateJPA {
     public static void main(String[] args) {
+        var scan = new Scanner(System.in);
+        var exit = false;
+        System.out.println("""
+                1. Addresses
+                2. Contacts
+                3. Exit
+                """);
+        var intChoice = Integer.parseInt(scan.nextLine());
+
+        switch (intChoice){
+            case 1 -> AddressOperations();
+//            case 2 -> ContactOperations();
+            case 3 -> exit = true;
+            default -> System.out.println("Invalid option. Please try again.");
+        }
+    }
+
+    public static void AddressOperations(){
         var exit= false;
         var scan = new Scanner(System.in);
         var addressDAO = new AddressDAO();
