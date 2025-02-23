@@ -26,11 +26,12 @@ public class StudentDAO {
         }
     }
 
-    public void SearchStudentById(Student student){
+    public Student SearchStudentById(Student student){
         em.getTransaction().begin();
         var students = em.find(Student.class, student.getIdStudent());
         em.getTransaction().commit();
         System.out.println(students);
+        return students;
     }
 
     public void addStudent(Student student){
