@@ -1,7 +1,9 @@
 package main;
 
 import data.AddressDAO;
+import data.ContactDAO;
 import domain.Address;
+import domain.Contact;
 
 import java.util.Scanner;
 
@@ -13,15 +15,99 @@ public class HibernateJPA {
                 1. Addresses
                 2. Contacts
                 3. Exit
+                
+                Please enter your choice:
                 """);
         var intChoice = Integer.parseInt(scan.nextLine());
 
         switch (intChoice){
             case 1 -> AddressOperations();
-//            case 2 -> ContactOperations();
+            case 2 -> ContactOperations();
             case 3 -> exit = true;
             default -> System.out.println("Invalid option. Please try again.");
         }
+    }
+
+    public static void ContactOperations(){
+        var exit= false;
+        var scan = new Scanner(System.in);
+        var contactDAO = new ContactDAO();
+
+        while (!exit){
+            System.out.println("""
+                    ******---Main Menu--******
+                    
+                    1. List Contacts
+                    2. Search Contact by Id
+                    3. Insert Contact
+                    4. Update Contact
+                    5. Delete Contact
+                    6. Exit
+                    
+                    Please enter your choice:
+                    """);
+            int choice = Integer.parseInt(scan.nextLine());
+
+            switch (choice){
+                case 1 -> contactDAO.listContacts(); //* List contacts
+                case 2 -> {
+                    System.out.println("--Provide the id of the contact you want to search--");
+                    int idPersona = Integer.parseInt(scan.nextLine());
+
+                    Contact contact1 = new Contact();
+                    contact1.setIdContact(idPersona);
+
+                    contactDAO.searchContactById(contact1);
+                }
+                case 3 -> { //* Insert contact
+                    System.out.println("---Provide the data for the contact---\n");
+                    System.out.println("Enter phone:");
+                    String phone = scan.nextLine();
+                    System.out.println("Enter email:");
+                    String email = scan.nextLine();
+
+                    var contact2 = new Contact();
+                    contact2.setPhone(phone);
+                    contact2.setEmail(email);
+
+                    contactDAO.addContact(contact2);
+                    System.out.println("\n\t----contact created successfully----");
+                }
+                case 4 -> { //* Update contact
+                    System.out.println("--Provide the id of the address you want to update--");
+                    int idContact = Integer.parseInt(scan.nextLine());
+
+                    System.out.println("Enter phone:");
+                    String phone = scan.nextLine();
+                    System.out.println("Enter email:");
+                    String email = scan.nextLine();
+
+                    var contact3 = new Contact();
+                    contact3.setIdContact(idContact);
+                    contact3 = contactDAO.searchContactById(contact3);
+
+                    contact3.setPhone(phone);
+                    contact3.setEmail(email);
+                    contactDAO.updateContact(contact3);
+                    System.out.println("\n\t----contact updated successfully----");
+
+                }
+                case 5 ->{
+                    System.out.println("--Provide the id of the contact you want to delete--");
+                    int idContact = Integer.parseInt(scan.nextLine());
+
+                    Contact contact4 = new Contact();
+                    contact4.setIdContact(idContact);
+
+                    contactDAO.deleteContact(contact4);
+                    System.out.println("\n\t----contact deleted successfully----");
+                }
+                case 6 -> exit = true;
+
+                default -> System.out.println("Invalid option");
+            }
+        }
+
     }
 
     public static void AddressOperations(){
