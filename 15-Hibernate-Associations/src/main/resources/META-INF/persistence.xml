@@ -4,7 +4,8 @@
              xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence_2_2.xsd">
     <persistence-unit name="HibernateJPA-PU" transaction-type="RESOURCE_LOCAL">
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
-        <class>domain.address</class>
+        <class>domain.Address</class>
+        <class>domain.Contact</class>
         <properties>
             <property name="jakarta.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/sga?useSSL=true&amp;useTimezone=true&amp;serverTimezone=UTC"/>
             <property name="jakarta.persistence.jdbc.user" value="Mexz"/>
