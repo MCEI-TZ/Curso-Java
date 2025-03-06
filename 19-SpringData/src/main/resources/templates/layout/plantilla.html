@@ -6,10 +6,10 @@
 </head>
 <body>
 <header th:fragment="header">
-    <h1>Control of People</h1>
+    <h1 th:text="#{plantilla.titulo}">Title</h1>
 </header>
 <footer th:fragment="footer">
-    <p>2025. All rights reserved.</p>
+    <p>[[#{plantilla.pie-pagina}]]</p>
 </footer>
 </body>
 </html>
