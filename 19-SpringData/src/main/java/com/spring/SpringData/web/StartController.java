@@ -35,4 +35,11 @@ public class StartController {
         personService.savePerson(person);
         return "redirect:/";
     }
+
+    @GetMapping("/edit/{idPerson}")
+    public String editPerson(Person person, Model model) {
+        var personToEdit = personService.findPerson(person);
+        model.addAttribute("person", personToEdit);
+        return "modify";
+    }
 }
