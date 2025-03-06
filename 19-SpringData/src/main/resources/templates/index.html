@@ -6,8 +6,6 @@
 </head>
 <body>
 <h1>Hello, Thymeleaf!</h1>
-<p th:text="${message}"></p>
-<div th:if="${people != null and !people.empty}">
     <table border="1">
         <thead>People</thead>
         <tr>
@@ -18,7 +16,7 @@
         </tr>
         <tr th:each="person: ${people}">
             <td th:text="${person.name}"></td>
-            <td th:text="${person.lastName}"></td>
+            <td th:text="${person.lastname}"></td>
             <td th:text="${person.email}"></td>
             <td th:text="${person.phone}"></td>
         </tr>
