@@ -1,6 +1,8 @@
 package com.spring.SpringData.domain;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotEmpty;
 import lombok.Data;
 
 import java.io.Serializable;
@@ -16,11 +18,16 @@ public class Person implements Serializable {
     @Column(name = "id_persona")
     private Long idPerson;
 
+    @NotEmpty
     private String name;
 
+    @NotEmpty
     private String lastname;
 
+    @NotEmpty
+    @Email
     private String email;
 
+    @NotEmpty
     private String phone;
 }
