@@ -5,23 +5,28 @@
     <title>Data of the person</title>
 </head>
 <body>
-<h1>Data of the person</h1>
+<header th:replace="layout/plantilla :: header"></header>
 <a th:href="@{/}">GO BACK</a>
 <form th:action="@{/save}" method="post" th:object="${person}">
     <input type="hidden" name="idPerson" th:field="*{idPerson}">
     <label for="name">Name:</label>
     <input type="text" id="name" name="name" th:field="*{name}"/>
+    <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Write a valid name</span>
     <br/>
     <label for="lastname">Last Name:</label>
     <input type="text" id="lastname" name="lastname" th:field="*{lastname}"/>
+    <span th:if="${#fields.hasErrors('lastname')}" th:errors="*{lastname}">Write a lastname</span>
     <br/>
     <label for="email">Email:</label>
-    <input type="email" id="email" name="email" th:field="*{email}"/>
+    <input type="text" id="email" name="email" th:field="*{email}"/>
+    <span th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Write a valid email</span>
     <br/>
     <label for="phone">Phone:</label>
     <input type="tel" id="phone" name="phone" th:field="*{phone}"/>
+<!--    <span th:if="${#fields.hasErrors('phone')}" th:errors="*{phone}">Write a valid phone</span>-->
     <br/>
     <input type="submit" value="Save"/>
 </form>
+<footer th:replace="layout/plantilla :: footer"></footer>
 </body>
 </html>
