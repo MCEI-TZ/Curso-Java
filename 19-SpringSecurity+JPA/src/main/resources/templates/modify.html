@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Data of the person</title>
+</head>
+<body>
+<header th:replace="layout/plantilla :: header"></header>
+<h1 th:text="#{persona.create}"/>
+<a th:href="@{/}">GO BACK</a>
+<form th:action="@{/save}" method="post" th:object="${person}">
+    <input type="hidden" name="idPerson" th:field="*{idPerson}">
+    <label for="name">[[#{persona.table.name}]]</label>
+    <input type="text" id="name" name="name" th:field="*{name}"/>
+    <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Write a valid name</span>
+    <br/>
+    <label for="lastname">[[#{persona.table.lastname}]]</label>
+    <input type="text" id="lastname" name="lastname" th:field="*{lastname}"/>
+    <span th:if="${#fields.hasErrors('lastname')}" th:errors="*{lastname}">Write a lastname</span>
+    <br/>
+    <label for="email">[[#{persona.table.email}]]</label>
+    <input type="text" id="email" name="email" th:field="*{email}"/>
+    <span th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Write a valid email</span>
+    <br/>
+    <label for="phone">[[#{persona.table.phone}]]</label>
+    <input type="tel" id="phone" name="phone" th:field="*{phone}"/>
+    <span th:if="${#fields.hasErrors('phone')}" th:errors="*{phone}">Write a valid phone</span>
+    <br/>
+    <input type="submit" value="Save"/>
+</form>
+<footer th:replace="layout/plantilla :: footer"></footer>
+</body>
+</html>
