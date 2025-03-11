@@ -21,15 +21,32 @@ public class SecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception {
         httpSecurity
                 //* Configura la autorización de las peticiones HTTP:
-                .authorizeHttpRequests(authorizeRequest ->
+                .authorizeHttpRequests(authorizeRequest -> authorizeRequest
+                        //* Configura la página de login personalizada para que acepte cualquier peticion
+                        .requestMatchers("/login", "/resources/**").permitAll()
+                        //* Configura ciertas apis en las que para acceder aparte de la autenticacion requiere tener un rol especifico, sino lo tiene se tiene que autenticar
+                        .requestMatchers("/add/**", "/edit/**", "/delete/**").hasRole("ADMIN")
                         //* Requiere que cualquier solicitud esté autenticada.
-                        authorizeRequest.anyRequest().authenticated()
+                        .anyRequest().authenticated()
                 )
                 //* Configura el login mediante formulario:
                 .formLogin(formLogin ->
-                        //* Permite el acceso a la página de login a todos los usuarios.
-                        formLogin.permitAll()
+                        formLogin
+                                //* Se asigna el link de la página del login personalizado
+                                .loginPage("/login")
+                                //* Redirecciona a la pagina de principal si el login es exitoso
+                                .defaultSuccessUrl("/", true)
+                                //* Permite el acceso a la página de login a todos los usuarios.
+                                .permitAll()
+                )
+                .logout(logout -> logout
+                        .logoutUrl("/logout")
+                        .logoutSuccessUrl("/login?logout")
+                )
+                .exceptionHandling(exceptionHandling -> exceptionHandling
+                        .accessDeniedPage("/errors/403")
                 );
+
         //* Construye y retorna la cadena de filtros de seguridad.
         return httpSecurity.build();
     }
