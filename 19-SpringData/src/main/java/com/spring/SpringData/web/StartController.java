@@ -54,4 +54,14 @@ public class StartController {
         personService.deletePerson(person);
         return "redirect:/";
     }
+
+    @GetMapping("/login")
+    public String login(){
+        return "login";
+    }
+
+    @GetMapping("/errors/403")
+    public String error403(){
+        return "errors/403";
+    }
 }
