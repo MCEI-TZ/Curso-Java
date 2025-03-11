@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <title>SPRING + THYMELEAF</title>
+</head>
+<body>
+<header th:replace="layout/plantilla :: header"></header>
+<button sec:authorize="hasRole('ROLE_ADMIN')"><a th:href="@{/add}">[[#{persona.create}]]</a></button>
+<br/>
+<table border="1">
+    <thead>People</thead>
+    <tr>
+        <th>[[#{persona.table.name}]]</th>
+        <th>[[#{persona.table.lastname}]]</th>
+        <th>[[#{persona.table.email}]]</th>
+        <th>[[#{persona.table.phone}]]</th>
+        <th sec:authorize="hasRole('ROLE_ADMIN')">[[#{persona.table.edit}]]</th>
+        <th sec:authorize="hasRole('ROLE_ADMIN')">[[#{persona.table.delete}]]</th>
+    </tr>
+    <tr th:each="person: ${people}">
+        <td th:text="${person.name}"></td>
+        <td th:text="${person.lastname}"></td>
+        <td th:text="${person.email}"></td>
+        <td th:text="${person.phone}"></td>
+        <td sec:authorize="hasRole('ROLE_ADMIN')"><a th:href="@{/edit/}+ ${person.idPerson}">[[#{action.edit}]]</a></td>
+        <td sec:authorize="hasRole('ROLE_ADMIN')"><a th:href="@{/delete/}+${person.idPerson}">[[#{action.delete}]]</a></td>
+    </tr>
+</table>
+</div>
+<div th:if="${people == null or people.empty}">
+    <p>[[#{persona.notfound}]]</p>
+</div>
+<footer th:replace="layout/plantilla :: footer"></footer>
+</body>
+</html>
