@@ -1,4 +1,4 @@
-package com.spring.SpringData.web;
+package com.spring.SpringSecurityJPA.web;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

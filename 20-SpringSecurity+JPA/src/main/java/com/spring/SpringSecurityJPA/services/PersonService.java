@@ -1,6 +1,6 @@
-package com.spring.SpringData.services;
+package com.spring.SpringSecurityJPA.services;
 
-import com.spring.SpringData.domain.Person;
+import com.spring.SpringSecurityJPA.domain.Person;
 
 import java.util.List;
 

@@ -1,4 +1,4 @@
-package com.spring.SpringData.domain;
+package com.spring.SpringSecurityJPA.domain;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;

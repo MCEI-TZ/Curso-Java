@@ -1,15 +1,13 @@
-package com.spring.SpringData.web;
+package com.spring.SpringSecurityJPA.web;
 
-import com.spring.SpringData.dao.IPersonDAO;
-import com.spring.SpringData.domain.Person;
-import com.spring.SpringData.services.PersonService;
+import com.spring.SpringSecurityJPA.domain.Person;
+import com.spring.SpringSecurityJPA.services.PersonService;
 import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
-import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 

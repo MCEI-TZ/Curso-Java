@@ -1,7 +1,7 @@
-package com.spring.SpringData.services;
+package com.spring.SpringSecurityJPA.services;
 
-import com.spring.SpringData.dao.IPersonDAO;
-import com.spring.SpringData.domain.Person;
+import com.spring.SpringSecurityJPA.dao.IPersonDAO;
+import com.spring.SpringSecurityJPA.domain.Person;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
